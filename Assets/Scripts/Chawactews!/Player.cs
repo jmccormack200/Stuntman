@@ -2,19 +2,19 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	int skill { get; private set; }
-	int health { get; private set; }
-	int rep { get; private set; }
-	int money { get; private set; }
+	public int skill { get; private set; }
+	public int health { get; private set; }
+	public int rep { get; private set; }
+	public int money { get; private set; }
 
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 	
 	}
 
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 	/// Increments the skill by the passed int.
 	/// </summary>
 	/// <param name="n">Amount to increment. Cannot be negative.</param>
-	void incrementSkill(int n)
+	public void incrementSkill(int n)
 	{
 		if (n < 0)
 			return;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 	/// Decrements the skill by the passed int.
 	/// </summary>
 	/// <param name="n">Amount to decrement. Cannot be negative.</param>
-	void decrementSkill(int n)
+	public void decrementSkill(int n)
 	{
 		if (n < 0)
 			return;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
 	/// Increments the health.
 	/// </summary>
 	/// <param name="n">Amount to increment. Cannot be negative.</param>
-	void incrementHealth(int n)
+	public void incrementHealth(int n)
 	{
 		if (n < 0)
 			return;
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
 	/// Decrements the health.
 	/// </summary>
 	/// <param name="n">Amount to decrement. Cannot be negative</param>
-	void decrementHealth(int n)
+	public void decrementHealth(int n)
 	{
 		if (n < 0)
 			return;
@@ -73,9 +73,9 @@ public class Player : MonoBehaviour {
 	/// <summary>
 	/// Sets the health to the maximum amount.
 	/// </summary>
-	void fillHealth()
+	public void fillHealth()
 	{
-		health = Constants.health.MAX_HEALTH;
+		health = (int) Constants.health.MAX_HEALTH;
 	}
 
 	/// <summary>
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour {
 	/// Decrements the money.
 	/// </summary>
 	/// <param name="n">Amount to decrement. Cannot be negative.</param>
-	void decrementMoney(int n)
+	public void decrementMoney(int n)
 	{
 		if (n < 0)
 			return;
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour {
 	/// Increments the rep.
 	/// </summary>
 	/// <param name="n">Amount to increment. Cannot be negative.</param>
-	void incrementRep(int n)
+	public void incrementRep(int n)
 	{
 		if (n < 0)
 			return;
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour {
 	/// Decrements the rep.
 	/// </summary>
 	/// <param name="n">Amount to decrement. Cannot be negative.</param>
-	void decrementRep(int n)
+	public void decrementRep(int n)
 	{
 		if (n < 0)
 			return;
