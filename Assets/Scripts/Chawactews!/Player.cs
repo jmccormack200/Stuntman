@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+	int skill { get; private set; }
+	int health { get; private set; }
+	int rep { get; private set; }
+	int money { get; private set; }
+
 
 	// Use this for initialization
 	void Start () {
@@ -11,5 +16,117 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	/// <summary>
+	/// Increments the skill by the passed int.
+	/// </summary>
+	/// <param name="n">Amount to increment. Cannot be negative.</param>
+	void incrementSkill(int n)
+	{
+		if (n < 0)
+			return;
+
+		skill += n;
+		return;
+	}
+
+	/// <summary>
+	/// Decrements the skill by the passed int.
+	/// </summary>
+	/// <param name="n">Amount to decrement. Cannot be negative.</param>
+	void decrementSkill(int n)
+	{
+		if (n < 0)
+			return;
+
+		skill -= n;
+		return;
+	}
+    
+	/// <summary>
+	/// Increments the health.
+	/// </summary>
+	/// <param name="n">Amount to increment. Cannot be negative.</param>
+	void incrementHealth(int n)
+	{
+		if (n < 0)
+			return;
+		
+		health += n;
+		return;
+	}
+
+	/// <summary>
+	/// Decrements the health.
+	/// </summary>
+	/// <param name="n">Amount to decrement. Cannot be negative</param>
+	void decrementHealth(int n)
+	{
+		if (n < 0)
+			return;
+		
+		health -= n;
+		return;
+	}
+
+	/// <summary>
+	/// Sets the health to the maximum amount.
+	/// </summary>
+	void fillHealth()
+	{
+		health = Constants.health.MAX_HEALTH;
+	}
+
+	/// <summary>
+	/// Increments the money.
+	/// </summary>
+	/// <param name="n">Amount to increment. Cannot be negative.</param>
+	void incrementMoney(int n)
+	{
+		if (n < 0)
+			return;
+		
+		money += n;
+		return;
+	}
+
+	/// <summary>
+	/// Decrements the money.
+	/// </summary>
+	/// <param name="n">Amount to decrement. Cannot be negative.</param>
+	void decrementMoney(int n)
+	{
+		if (n < 0)
+			return;
+		
+		money -= n;
+		return;
+	}
+
+	/// <summary>
+	/// Increments the rep.
+	/// </summary>
+	/// <param name="n">Amount to increment. Cannot be negative.</param>
+	void incrementRep(int n)
+	{
+		if (n < 0)
+			return;
+		
+		rep += n;
+		return;
+	}
+
+	/// <summary>
+	/// Decrements the rep.
+	/// </summary>
+	/// <param name="n">Amount to decrement. Cannot be negative.</param>
+	void decrementRep(int n)
+	{
+		if (n < 0)
+			return;
+		
+		rep -= n;
+		return;
 	}
 }
