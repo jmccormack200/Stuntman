@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 guid: 8cd957e9dc595e9429fda3cba9b3c93c
-timeCreated: 1451687820
+timeCreated: 1451688016
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: NotExcitebike_0
+    21300000: NotExcitebike_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,16 +51,16 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: NotExcitebike_0
+    - name: NotExcitebike_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 199
-        height: 188
+        x: 6
+        y: 160
+        width: 21
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 161, z: 171, w: 4}
+      border: {x: 0, y: 25, z: 21, w: 0}
       outline:
       - - {x: -99.5, y: 94}
         - {x: -99.5, y: -94}
