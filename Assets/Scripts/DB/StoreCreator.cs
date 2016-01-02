@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Collections;
+using System.Collections.Generic;
 using Mono.Data.Sqlite;
 
 
@@ -24,6 +25,9 @@ public class StoreCreator : MonoBehaviour {
 	public string databaseName = "/gameDB.db";
 	public string tableName = "ItemsForStoreTable";
 
+	//Sprite Dictionary to allow for finding the right sprite
+	public Dictionary<string, Sprite> spriteDict = new Dictionary<string, Sprite>();
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -40,6 +44,17 @@ public class StoreCreator : MonoBehaviour {
 		dbcmd.CommandText = sqlQuery;
 		IDataReader reader = dbcmd.ExecuteReader ();
 
+		//Fill the sprite dictionary
+		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites");
+
+		foreach (Sprite sprite in sprites)
+		{
+			print (sprite.name);
+			spriteDict.Add (sprite.name, sprite);
+		}
+
+		Dictionary<string, string> names = new Dictionary<string, string>();
+
 		while (reader.Read ()) 
 		{
 			string name = reader.GetString (0);
@@ -47,8 +62,22 @@ public class StoreCreator : MonoBehaviour {
 			string img = reader.GetString (2);
 			//int quant = reader.GetInt32 (3);
 
+			names.Add(name, img);
+
 			Debug.Log ("  name = " + name + " path = " + img);
 		}
+
+		foreach (string img in names.Values){
+			GameObject item = new GameObject ();
+			item.AddComponent<SpriteRenderer> ();
+			print (img);
+			item.GetComponent<SpriteRenderer> ().sprite = spriteDict[img];
+		}
+
+		//This will be to load the sprites
+		//Should be turned into a function at some point
+
+
 
 		reader.Close ();
 		reader = null;
