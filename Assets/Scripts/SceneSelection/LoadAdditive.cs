@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class LoadAdditive : MonoBehaviour
 {
     
-    public void LoadAddOnClick(int level)
+    public void LoadAddOnClick(string level)
     {
         
         SceneManager.LoadScene(level, LoadSceneMode.Additive);
