@@ -4,4 +4,10 @@
 		MAX_HEALTH = 100,
 		MIN_HEALTH = 0
 	};
+	public enum skillDefaults
+	{
+		SKILL = 0,
+		REP = 0,
+		MONEY = 0
+	};
 }
