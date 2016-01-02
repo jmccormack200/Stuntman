@@ -26,6 +26,7 @@ public class helloDB : MonoBehaviour {
 		dbconn.Open (); //Open the conection.
 		IDbCommand dbcmd = dbconn.CreateCommand();
 
+		//This is the actual sql command, it is then passed to the db command
 		string sqlQuery = "SELECT value, name, rand " + "From PlaceSequence";
 		dbcmd.CommandText = sqlQuery;
 		IDataReader reader = dbcmd.ExecuteReader ();
