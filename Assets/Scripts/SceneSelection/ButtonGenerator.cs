@@ -23,7 +23,9 @@ public class ButtonGenerator : MonoBehaviour {
         //}
 
         newButton.name = name;
-        //newButton.GetComponent<Text>().text = name;
+        Debug.Log(newButton.GetComponentInChildren<Text>().text);
+        newButton.GetComponentInChildren<Text>().text = name;
+        Debug.Log(newButton.GetComponentInChildren<Text>().text);
     }
 
 } 
