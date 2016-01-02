@@ -45,6 +45,8 @@ public class StoreCreator : MonoBehaviour {
 		IDataReader reader = dbcmd.ExecuteReader ();
 
 		//Fill the sprite dictionary
+		//Using this command requires all the sprites to be in a 
+		//folder named sprites within a folder names Resources
 		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites");
 
 		foreach (Sprite sprite in sprites)
@@ -53,6 +55,9 @@ public class StoreCreator : MonoBehaviour {
 			spriteDict.Add (sprite.name, sprite);
 		}
 
+		//This dictionary doesnt really make sense right now as the 
+		//name and path are the same, not sure if its worth leaving in
+		//in case we want them to be able to be changed later
 		Dictionary<string, string> names = new Dictionary<string, string>();
 
 		while (reader.Read ()) 
@@ -66,6 +71,12 @@ public class StoreCreator : MonoBehaviour {
 
 			Debug.Log ("  name = " + name + " path = " + img);
 		}
+
+		//for each item in the dictionary,
+		//display the sprite
+		//probably will want to rename them too
+		//WILL need to move them into a pretty fashion
+		//and ensure all the sizes are correct.
 
 		foreach (string img in names.Values){
 			GameObject item = new GameObject ();
