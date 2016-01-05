@@ -17,5 +17,5 @@
         GameScreen,
         HelloScene,
         Stuntman
-    }
+	};
 }

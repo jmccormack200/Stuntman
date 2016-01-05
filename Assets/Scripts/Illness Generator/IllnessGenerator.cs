@@ -9,21 +9,21 @@ public class IllnessGenerator{
 	/// <returns>The name of illness as a string.</returns>
 	public string getIllness()
 	{
-				string illness, prefix, suffix;
-				prefix = getPrefix (); // First part of name (body part)
-				suffix = getSuffix (); // Second part of name (ailment)
+		string illness, prefix, suffix;
+		prefix = getPrefix (); // First part of name (body part)
+		suffix = getSuffix (); // Second part of name (ailment)
 
-				// If ailment begins with '-' (like "-itis"), do not add space between words.
-				if (suffix [0] == '-') 
-				{
-						illness = prefix + suffix;
-				} 
-				else // Otherwise add a space between words
-				{
-						illness = prefix + " " + suffix;
-				}
+		// If ailment begins with '-' (like "-itis"), do not add space between words.
+		if (suffix [0] == '-') 
+		{
+				illness = prefix + suffix;
+		} 
+		else // Otherwise add a space between words
+		{
+				illness = prefix + " " + suffix;
+		}
 
-				return illness;
+		return illness;
 	}
 
 	private string getPrefix()

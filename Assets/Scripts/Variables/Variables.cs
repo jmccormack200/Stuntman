@@ -1,7 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 
-public static class Variables
+namespace AssemblyCSharp
 {
-		public static string fathersIllness { get; set; }
+		public class Variables
+		{
+				public Variables ()
+				{
+				}
+		}
 }
+

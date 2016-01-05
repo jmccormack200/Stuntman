@@ -1,26 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player
+public class Player : Character
 {
 	public int skill { get; private set; }
 	public int health { get; private set; }
 	public int rep { get; private set; }
 	public int money { get; private set; }
-	public string name { get; private set; }
 
-	public Player(int skill, int health, int rep, int money, string name)
+	public Player(int skill, int health, int rep, int money, string name) : base(name)
 	{
 		this.skill = skill;
 		this.health = health;
 		this.rep = rep;
 		this.money = money;
-		this.name = name;
 	}
 
-	public Player(string name)
+	public Player(string name) : base(name)
 	{
-		this.name = (string) name;
 		this.health = (int) Constants.health.MAX_HEALTH;
 		this.rep = (int)Constants.skillDefaults.REP;
 		this.money = (int)Constants.skillDefaults.MONEY;
