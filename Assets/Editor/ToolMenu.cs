@@ -17,7 +17,7 @@ public class MenuItems
             Debug.Log(scene);
             Debug.Log((int)System.Enum.Parse(typeof(Constants.scenes), scene));
             //add each scene to Scene array in proper place based on enumeration
-            scenes[(int)System.Enum.Parse(typeof(Constants.scenes),scene)] = new EditorBuildSettingsScene("Assets/Scenes/" + scene, true);
+            scenes[(int)System.Enum.Parse(typeof(Constants.scenes),scene)] = new EditorBuildSettingsScene("Assets/Scenes/" + scene + ".unity", true);
 
         }
         EditorBuildSettings.scenes = scenes;//set build order

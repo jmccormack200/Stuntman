@@ -15,7 +15,7 @@
         MainMenu,
         subMenu,
         GameScreen,
-        HelloScene,
+        StoreDesigner,
         Stuntman
 	};
 }

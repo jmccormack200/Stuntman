@@ -19,7 +19,7 @@ using Mono.Data.Sqlite;
 /// Should probably move the image path to the generic item list too
 /// 
 /// </summary>
-public class StoreDBInterface : MonoBehaviour {
+public class StoreDBInterface {
 	//Name of the Database
 	public string databaseName = "/gameDB.db";
 	public string tableName = "ItemsForStoreTable";
@@ -28,8 +28,13 @@ public class StoreDBInterface : MonoBehaviour {
 	public Dictionary<string, Items> itemDict = new Dictionary<string, Items>();
 
 	// Use this for initialization
-
-	void Start () 
+	/// <summary>
+	/// This function will open a connection to the database and return a dictionary of items
+	/// in the form of <string, Items> where string is the name of the item and Items is the object
+	/// created in Items.cs within this project.
+	/// </summary>
+	/// <returns>The items.</returns>
+	public Dictionary<string, Items> fetchItemsAsDictionary () 
 	{
 		//Path to database
 		string conn = "URI=file:" + Application.dataPath + databaseName;
@@ -65,12 +70,7 @@ public class StoreDBInterface : MonoBehaviour {
 		dbcmd = null;
 		dbconn.Close ();
 		dbconn = null;
-	}
 
-
-	// Update is called once per frame
-	void Update () 
-	{
-
+		return itemDict;
 	}
 }
