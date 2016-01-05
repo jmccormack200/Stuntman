@@ -10,4 +10,12 @@
 		REP = 0,
 		MONEY = 0
 	};
+    public enum scenes
+    {
+        MainMenu,
+        subMenu,
+        GameScreen,
+        HelloScene,
+        Stuntman
+    }
 }
