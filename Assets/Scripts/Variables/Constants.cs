@@ -11,6 +11,7 @@
 		REP = 0,
 		MONEY = 0
 	};
+<<<<<<< HEAD
 	public enum scenes
 	{
 		MainMenu,
@@ -18,5 +19,14 @@
 		GameScreen,
 		StoreDesigner,
 		Stuntman
+=======
+    public enum scenes
+    {
+        MainMenu,
+        subMenu,
+        GameScreen,
+        StoreDesigner,
+        Stuntman
+>>>>>>> f0cf39d35045c6bf2133d2406d7ed6485ee20031
 	};
 }
