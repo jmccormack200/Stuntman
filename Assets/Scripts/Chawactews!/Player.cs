@@ -1,21 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : Character
+{
 	public int skill { get; private set; }
 	public int health { get; private set; }
 	public int rep { get; private set; }
 	public int money { get; private set; }
 
-
-	// Use this for initialization
-	public void Start () {
-	
+	public Player(int skill, int health, int rep, int money, string name) : base(name)
+	{
+		this.skill = skill;
+		this.health = health;
+		this.rep = rep;
+		this.money = money;
 	}
-	
-	// Update is called once per frame
-	public void Update () {
-	
+
+	public Player(string name) : base(name)
+	{
+		this.health = (int) Constants.health.MAX_HEALTH;
+		this.rep = (int)Constants.skillDefaults.REP;
+		this.money = (int)Constants.skillDefaults.MONEY;
 	}
 
 	/// <summary>
@@ -76,6 +81,17 @@ public class Player : MonoBehaviour {
 	public void fillHealth()
 	{
 		health = (int) Constants.health.MAX_HEALTH;
+	}
+
+	/// <summary>
+	/// Determines if player is alive	/// </summary>
+	/// <returns><c>true</c>, if player is alive, <c>false</c> otherwise.</returns>
+	public bool isAlive()
+	{
+		if (health > 0)
+			return true;
+		else
+			return false;		
 	}
 
 	/// <summary>

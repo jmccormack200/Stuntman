@@ -20,7 +20,7 @@ using Mono.Data.Sqlite;
 /// Should probably move the image path to the generic item list too
 /// 
 /// </summary>
-public class StoreCreator : MonoBehaviour {
+public class oldStoreCreator : MonoBehaviour {
 	//Name of the Database
 	public string databaseName = "/gameDB.db";
 	public string tableName = "ItemsForStoreTable";
