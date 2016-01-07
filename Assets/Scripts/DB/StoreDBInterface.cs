@@ -25,8 +25,8 @@ public class StoreDBInterface {
 	public string tableName = "ItemsForStoreTable";
 	//All relevant information will be stored in this dictionary. 
 	//Any expansion to functionality should first be made to the Item class. 
-	public Dictionary<string, Items> itemDict = new Dictionary<string, Items>();
-	public List<Items> itemList = new List<Items>();
+	public Dictionary<string, Item> itemDict = new Dictionary<string, Item>();
+	public List<Item> itemList = new List<Item>();
 
 	// Use this for initialization
 	/// <summary>
@@ -35,7 +35,7 @@ public class StoreDBInterface {
 	/// created in Items.cs within this project.
 	/// </summary>
 	/// <returns>The items.</returns>
-	public Dictionary<string, Items> fetchItemsAsDictionary () 
+	public Dictionary<string, Item> fetchItemsAsDictionary () 
 	{
 		//Path to database
 		string conn = "URI=file:" + Application.dataPath + databaseName;
@@ -58,7 +58,7 @@ public class StoreDBInterface {
 			string spritename = reader.GetString (1);
 			string desc = reader.GetString (2);
 
-			Items nextItem = new Items (name, spritename, desc);
+			Item nextItem = new Item (name, spritename, desc);
 
 			itemDict.Add(name, nextItem);
 
@@ -75,7 +75,7 @@ public class StoreDBInterface {
 		return itemDict;
 	}
 
-	public List<Items> fetchItemsAsList () 
+	public List<Item> fetchItemsAsList () 
 	{
 		//Path to database
 		string conn = "URI=file:" + Application.dataPath + databaseName;
@@ -98,7 +98,7 @@ public class StoreDBInterface {
 			string spritename = reader.GetString (1);
 			string desc = reader.GetString (2);
 
-			Items nextItem = new Items (name, spritename, desc);
+			Item nextItem = new Item (name, spritename, desc);
 
 			itemList.Add (nextItem);
 

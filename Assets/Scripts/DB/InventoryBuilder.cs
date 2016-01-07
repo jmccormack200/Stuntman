@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class InventoryBuilder : MonoBehaviour 
 {
 	public string tagname = "ItemSpriteScreen";
-	public List<Items> itemList = new List<Items>();
+	public List<Item> itemList = new List<Item>();
 	public List<GameObject> screenList;
 	public Dictionary<string, Sprite> spriteDict = new Dictionary<string, Sprite>();
 	public Sprite TESTSPRITE; 

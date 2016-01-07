@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Centers the object horizontally with respects to screen height
+/// </summary>
 public class CenterVertically : MonoBehaviour {
 
     // Use this for initialization
