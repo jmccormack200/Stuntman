@@ -26,6 +26,7 @@ public class StoreDBInterface {
 	//All relevant information will be stored in this dictionary. 
 	//Any expansion to functionality should first be made to the Item class. 
 	public Dictionary<string, Items> itemDict = new Dictionary<string, Items>();
+	public List<Items> itemList = new List<Items>();
 
 	// Use this for initialization
 	/// <summary>
@@ -61,7 +62,7 @@ public class StoreDBInterface {
 
 			itemDict.Add(name, nextItem);
 
-			Debug.Log ("  name = " + name + " path = " + spritename);
+			//Debug.Log ("  name = " + name + " path = " + spritename);
 		}
 
 		reader.Close ();
@@ -72,5 +73,45 @@ public class StoreDBInterface {
 		dbconn = null;
 
 		return itemDict;
+	}
+
+	public List<Items> fetchItemsAsList () 
+	{
+		//Path to database
+		string conn = "URI=file:" + Application.dataPath + databaseName;
+
+		IDbConnection dbconn;
+		dbconn = (IDbConnection)new SqliteConnection (conn);
+		dbconn.Open (); //Open the conection.
+		IDbCommand dbcmd = dbconn.CreateCommand();
+
+		//This is the actual sql command, it is then passed to the db command
+		string sqlQuery = "SELECT name, spritename, desc " + "From " + tableName;
+		dbcmd.CommandText = sqlQuery;
+		IDataReader reader = dbcmd.ExecuteReader ();
+
+
+		//Build out the dictionary from the DB
+		while (reader.Read ()) 
+		{
+			string name = reader.GetString (0);
+			string spritename = reader.GetString (1);
+			string desc = reader.GetString (2);
+
+			Items nextItem = new Items (name, spritename, desc);
+
+			itemList.Add (nextItem);
+
+			//Debug.Log ("  name = " + name + " path = " + spritename);
+		}
+
+		reader.Close ();
+		reader = null;
+		dbcmd.Dispose ();
+		dbcmd = null;
+		dbconn.Close ();
+		dbconn = null;
+
+		return itemList;
 	}
 }
