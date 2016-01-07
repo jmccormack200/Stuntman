@@ -13,8 +13,8 @@ public class CenterHorizontally : MonoBehaviour
 		transform.position = new Vector3(Screen.width / 2, transform.position.y, transform.position.z);
 	}	
 
-    void Update()
-    {
+	void Update()
+	{
 
-    }
+	}
 }

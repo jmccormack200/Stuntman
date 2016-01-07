@@ -48,7 +48,7 @@ public class Player : Character
 		skill -= n;
 		return;
 	}
-    
+	
 	/// <summary>
 	/// Increments the health.
 	/// </summary>

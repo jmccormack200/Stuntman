@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Crew : Character
 {
-	public Crew(string name) : base(name)
-	{
+	public int skill { get; private set; }
 
+	public Crew(string name, int skill) : base(name)
+	{
+		this.skill = skill;
 	}
 }

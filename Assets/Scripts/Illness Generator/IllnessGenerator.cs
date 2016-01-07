@@ -26,15 +26,17 @@ public class IllnessGenerator{
 		return illness;
 	}
 
+	// Gets first half of name from database
 	private string getPrefix()
 	{
 		// Database Access function
-		return "Placeholder Body Part";
+		return DBaccess.getIllnessBodyPart();
 	}
 
+	// Gets second half of name from database
 	private string getSuffix()
 	{
 		// Database Access function
-		return "Placeholder Ailment";
+		return DBaccess.getIllnessAilment();
 	}
 }
