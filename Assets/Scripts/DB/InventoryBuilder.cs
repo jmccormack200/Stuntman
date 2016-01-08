@@ -14,6 +14,12 @@ public class InventoryBuilder : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+
+		//JUST HOLDING THIS FOR A FRIEND, REMOVE AFTER CONFIRMED WORKING
+		IllnessGenerator ig = new IllnessGenerator();
+		string ailment = ig.getIllness ();
+		print ("Your character has: " + ailment);
+		//
 		StoreDBInterface dbinterface = new StoreDBInterface ();
 		itemList = dbinterface.fetchItemsAsList ();
 
@@ -24,20 +30,14 @@ public class InventoryBuilder : MonoBehaviour
 
 		//Build out Sprite Dictionary
 		Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites");
-		print ("Sprites Found Are:  ");
+		//print ("Sprites Found Are:  ");
 		foreach (Sprite sprite in sprites)
 		{
-			print (sprite.name);
+		//	print (sprite.name);
 			spriteDict.Add (sprite.name, sprite);
 		}
 
-
-		//Delete below
-		foreach (Sprite sprite in spriteDict.Values) {
-			print (sprite.name);
-		}
-		//To here
-		print ("Sprites being printed are");
+//		print ("Sprites being printed are");
 		foreach (Transform child in gameObject.transform) 
 		{
 			if (child.tag == tagname)
@@ -51,12 +51,12 @@ public class InventoryBuilder : MonoBehaviour
 					//we use the spritename of the next item to access the sprite from the sprite
 					//dictionary. 
 					child.transform.GetChild(0).GetComponent<SpriteRenderer> ().sprite = spriteDict[itemList[positionInList].spritename];
-					print(itemList[positionInList].spritename);
+//					print(itemList[positionInList].spritename);
 					positionInList += 1;
 				} catch 
 				{
-					print ("Not Displaying");
-					print (itemList [positionInList].spritename);
+//					print ("Not Displaying");
+//					print (itemList [positionInList].spritename);
 				}
 			}
 		}
