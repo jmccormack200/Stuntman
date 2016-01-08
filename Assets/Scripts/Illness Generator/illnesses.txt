@@ -9,3 +9,5 @@ amputation
 plaque
 attack
 disease
+leprosy
+herpes
