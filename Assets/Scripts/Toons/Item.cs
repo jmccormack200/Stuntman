@@ -12,7 +12,7 @@ public class Item
     public string spritename { get; private set; }
 
 
-    public Item(string name, string description, string spritename)
+	public Item(string name, string spritename, string description)
     {
         this.name = name;
         this.description = description;
