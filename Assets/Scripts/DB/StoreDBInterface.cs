@@ -46,7 +46,7 @@ public class StoreDBInterface {
 		IDbCommand dbcmd = dbconn.CreateCommand();
 
 		//This is the actual sql command, it is then passed to the db command
-		string sqlQuery = "SELECT name, spritename, desc " + "From " + tableName;
+		string sqlQuery = "SELECT name, spritename, desc, cost " + "From " + tableName;
 		dbcmd.CommandText = sqlQuery;
 		IDataReader reader = dbcmd.ExecuteReader ();
 
@@ -57,10 +57,11 @@ public class StoreDBInterface {
 			string name = reader.GetString (0);
 			string spritename = reader.GetString (1);
 			string desc = reader.GetString (2);
+			int cost = reader.GetInt32 (3);
 
-			Item nextItem = new Item (name, spritename, desc);
+			Item nextItem = new Item (name, spritename, desc, cost);
 
-			itemDict.Add(name, nextItem);
+			itemDict.Add(spritename, nextItem);
 
 			//Debug.Log ("  name = " + name + " path = " + spritename);
 		}
@@ -86,7 +87,7 @@ public class StoreDBInterface {
 		IDbCommand dbcmd = dbconn.CreateCommand();
 
 		//This is the actual sql command, it is then passed to the db command
-		string sqlQuery = "SELECT name, spritename, desc " + "From " + tableName;
+		string sqlQuery = "SELECT name, spritename, desc, cost " + "From " + tableName;
 		dbcmd.CommandText = sqlQuery;
 		IDataReader reader = dbcmd.ExecuteReader ();
 
@@ -97,8 +98,9 @@ public class StoreDBInterface {
 			string name = reader.GetString (0);
 			string spritename = reader.GetString (1);
 			string desc = reader.GetString (2);
+			int cost = reader.GetInt32 (3);
 
-			Item nextItem = new Item (name, spritename, desc);
+			Item nextItem = new Item (name, spritename, desc, cost);
 
 			itemList.Add (nextItem);
 
