@@ -61,6 +61,7 @@ public class InventoryBuilder : MonoBehaviour
 					//dictionary. 
 					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = spriteDict [itemList [positionInList].spritename];
 					positionInList += 1;
+					print(positionInList);
 				} catch 
 				{
 

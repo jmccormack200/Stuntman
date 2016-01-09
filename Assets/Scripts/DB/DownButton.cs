@@ -11,11 +11,11 @@ public class DownButton : MonoBehaviour
 		int numScreens = inventory.GetComponent<InventoryBuilder> ().numberOfScreens;
 		int position = inventory.GetComponent<InventoryBuilder> ().positionInList;
 
-		if (position + numScreens <= maximum) {
+		//if (position + numScreens <= maximum) {
 			inventory.GetComponent<InventoryBuilder> ().positionInList = numScreens + position;
-		} else
-		{
-			print ("End");
-		}
+		//} else
+		//{
+		//	print ("End");
+		//}
 	}
 }
