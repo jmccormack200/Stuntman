@@ -8,8 +8,8 @@ public class InventoryBuilder : MonoBehaviour
 	public List<Item> itemList = new List<Item>();
 	public Dictionary<string, Sprite> spriteDict = new Dictionary<string, Sprite>();
 	public Sprite TESTSPRITE; 
-	private int numberOfScreens = 0;
-	private int positionInList = 0;
+	public int numberOfScreens = 0;
+	public int positionInList = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -60,8 +60,8 @@ public class InventoryBuilder : MonoBehaviour
 					//we use the spritename of the next item to access the sprite from the sprite
 					//dictionary. 
 					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = spriteDict [itemList [positionInList].spritename];
-
 					positionInList += 1;
+					print(positionInList);
 				} catch 
 				{
 
