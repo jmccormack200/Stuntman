@@ -19,4 +19,13 @@
 		StoreDesigner,
 		Stuntman
 	};
+    public enum crewJob
+    {
+        Mechanic,
+        Driver,
+        RampBuilder,
+        Videographer,
+        PR
+    }
+
 }
