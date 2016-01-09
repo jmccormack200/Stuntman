@@ -7,15 +7,15 @@ using UnityEngine.UI;
 public class ButtonGenerator : MonoBehaviour {
 
     //GenerateButton
-    //Generates a Button
-    public void GenerateButton(string name)
+    //Generates and returns a Button from BtnPrefab
+    static public GameObject GenerateButton(string name)
     {
         
         GameObject newButton = (GameObject)Instantiate(Resources.Load("Prefabs/BtnPrefab"));
         //if (canvas == null)
         //{
-            GameObject newCanvas = new GameObject("canvas", typeof(Canvas));
-            newButton.transform.SetParent(newCanvas.transform);
+            //GameObject newCanvas = new GameObject("canvas", typeof(Canvas));
+            //newButton.transform.SetParent(newCanvas.transform);
         //}
         //else
         //{
@@ -26,6 +26,8 @@ public class ButtonGenerator : MonoBehaviour {
         Debug.Log(newButton.GetComponentInChildren<Text>().text);
         newButton.GetComponentInChildren<Text>().text = name;
         Debug.Log(newButton.GetComponentInChildren<Text>().text);
+        
+        return newButton;
     }
 
 } 

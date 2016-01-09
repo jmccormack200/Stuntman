@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Option : MonoBehaviour {
 
-    private new string name { get; set; }//name of option - what will be shown on button
-    private string func { get; set; }//function to call onClick
-    private int unlockedAtLevel { get; set; }//rep level at which to unlock -need to discuss more how locking mechanism works(some things locked by rep? others money? etc)
+    public new string name { get; private set; }//name of option - what will be shown on button
+    public string func { get; private set; }//function to call onClick
+    public int unlockedAtLevel { get; private set; }//rep level at which to unlock -need to discuss more how locking mechanism works(some things locked by rep? others money? etc)
 
     public Option(string name, string func, int unlockedAtLevel = 0)
     {

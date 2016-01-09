@@ -5,8 +5,8 @@ using System.Collections;
 public class Menu : MonoBehaviour {
 
 	
-    private new string name;//name of Menu
-    private Option[] options;//array of options - will be buttons
+    public new string name { get; private set; }//name of Menu
+    public Option[] options {get; private set;} //array of options - will be buttons
 
     public Menu()
     {
