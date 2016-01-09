@@ -1,5 +1,7 @@
 ﻿public static class Constants 
 {
+    public const string DBlocation = "/gameDB.db";
+
 	public enum health
 	{
 		MAX_HEALTH = 100,
