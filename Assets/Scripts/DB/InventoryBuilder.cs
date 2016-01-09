@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,9 +12,15 @@ public class InventoryBuilder : MonoBehaviour
 	public int numberOfScreens = 0;
 	public int positionInList = 0;
 
+	public GameObject downbutton;
+	public GameObject upbutton;
+
 	// Use this for initialization
 	void Start () 
 	{
+		//The upbutton should start disabled
+		upbutton.GetComponent<Button> ().interactable = false;
+
 		StoreDBInterface dbinterface = new StoreDBInterface ();
 		itemList = dbinterface.fetchItemsAsList ();
 
@@ -28,24 +35,20 @@ public class InventoryBuilder : MonoBehaviour
 		{
 			if (child.tag == tagname) 
 			{
-				try 
-				{
-					numberOfScreens += 1;
-				} catch 
-				{
-
-				}
+				numberOfScreens += 1;
 			}
 		}
+
+		LoadScreens ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		LoadScreens ();
+		
 	}
 
-	void LoadScreens()
+	public void LoadScreens()
 	{
 		foreach (Transform child in gameObject.transform) 
 		{
@@ -60,13 +63,42 @@ public class InventoryBuilder : MonoBehaviour
 					//we use the spritename of the next item to access the sprite from the sprite
 					//dictionary. 
 					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = spriteDict [itemList [positionInList].spritename];
-					positionInList += 1;
 					print(positionInList);
 				} catch 
 				{
+					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = null;
 
 				}
+				positionInList +=1;
 			}
 		}
+	}
+
+	public void DownButton()
+	{
+		LoadScreens ();
+
+		if (positionInList >= itemList.Count) {
+			downbutton.GetComponent<Button> ().interactable = false;
+		} 
+
+		if (positionInList >= numberOfScreens) {
+			upbutton.GetComponent<Button> ().interactable = true;
+		}
+	}
+
+	public void UpButton()
+	{
+		//int maximum = itemList.Count;
+		positionInList -= 2 * numberOfScreens; 
+		LoadScreens ();
+
+		if (positionInList <= numberOfScreens) {
+			upbutton.GetComponent<Button> ().interactable = false;
+		}
+
+		if (positionInList <= itemList.Count) {
+			downbutton.GetComponent<Button> ().interactable = true;
+		} 
 	}
 }

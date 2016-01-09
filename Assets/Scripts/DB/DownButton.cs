@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Down button. script, this should be replaced and
+/// deleted shortly. 
+/// </summary>
+/// /*
+/*
 public class DownButton : MonoBehaviour
 {
-	void OnMouseDown()
+	void DownButtonArrow()
 	{
 		print ("Test");
 		Transform inventory = transform.parent.transform;
@@ -13,9 +20,11 @@ public class DownButton : MonoBehaviour
 
 		//if (position + numScreens <= maximum) {
 			inventory.GetComponent<InventoryBuilder> ().positionInList = numScreens + position;
+		inventory.GetComponent<InventoryBuilder> ().LoadScreens ();
 		//} else
 		//{
 		//	print ("End");
 		//}
 	}
 }
+*/
