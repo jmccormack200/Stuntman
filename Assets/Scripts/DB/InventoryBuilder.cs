@@ -33,8 +33,10 @@ public class InventoryBuilder : MonoBehaviour
 
 		foreach (Transform child in gameObject.transform) 
 		{
+			print ("one");
 			if (child.tag == tagname) 
 			{
+				print ("match");
 				numberOfScreens += 1;
 			}
 		}
