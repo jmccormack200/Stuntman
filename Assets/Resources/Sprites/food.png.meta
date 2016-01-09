@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eb852bcefc34eb24ebf083de6ecc2c4b
-timeCreated: 1451698793
+timeCreated: 1452297054
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,6 +22,11 @@ TextureImporter:
     21300030: food_15
     21300032: food_16
     21300034: food_17
+    21300036: cake
+    21300038: chicken
+    21300040: diffapple
+    21300042: watermelon
+    21300044: fish
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -108,6 +113,61 @@ TextureImporter:
         y: 203
         width: 32
         height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: cake
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 201
+        width: 35
+        height: 31
+      alignment: 9
+      pivot: {x: 0.4856849, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: chicken
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 201
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: diffapple
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 203
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: watermelon
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 203
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: fish
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 170
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
