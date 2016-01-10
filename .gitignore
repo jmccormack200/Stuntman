@@ -21,6 +21,9 @@
 sysinfo.txt
 *.stackdump
 
+#unity build settings
+EditorBuildSettings.asset
+
 # Build folder
 bin/
 
