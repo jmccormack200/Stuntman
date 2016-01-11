@@ -21,10 +21,10 @@ public static class DBaccess
         try
         {           
             string sqlQuery = "SELECT bodypart FROM IllnessBodyPart ORDER BY RANDOM() LIMIT 1" ;
-            getStringFromDB(sqlQuery);
-            
+            getStringFromDB(sqlQuery);            
         } 
-        catch {
+        catch
+        {
             part = "Face";
         }
         
@@ -44,13 +44,20 @@ public static class DBaccess
             string sqlQuery = "SELECT ailment FROM IllnessAilment ORDER BY RANDOM() LIMIT 1" ;
             ailment = getStringFromDB(sqlQuery);
             
-        } catch {
+        }
+        catch
+        {
             ailment = "Leprosy";
         }
 
         return ailment;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sqlQuery"></param>
+    /// <returns></returns>
     private static string getStringFromDB(string sqlQuery)
     {
         //Path to database
@@ -69,11 +76,7 @@ public static class DBaccess
         try
         {
             dbconn.Open(); //Open the conection.
-
-            while (reader.Read())
-            {
-                returnString = reader.GetString(0);
-            }
+            returnString = reader.GetString(0);
         }
         catch
         {

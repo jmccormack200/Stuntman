@@ -68,10 +68,10 @@ public class InventoryBuilder : MonoBehaviour
 					//dictionary. 
 					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = spriteDict [itemList [positionInList].spritename];
 					//print(positionInList);
-				} catch 
+				}
+                catch 
 				{
 					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = null;
-
 				}
 				positionInList +=1;
 			}
@@ -122,6 +122,5 @@ public class InventoryBuilder : MonoBehaviour
 				print ("no match");
 			}
 		}
-
 	}
 }
