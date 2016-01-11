@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class Menu : MonoBehaviour {
+public class Menu  :MonoBehaviour{
 
 	
     public new string name { get; private set; }//name of Menu
