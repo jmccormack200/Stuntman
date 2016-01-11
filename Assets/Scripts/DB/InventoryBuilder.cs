@@ -9,7 +9,7 @@ public class InventoryBuilder : MonoBehaviour
 	public List<Item> itemList = new List<Item>();
 	public Dictionary<string, Item> itemDict = new Dictionary<string, Item>();
 	public Dictionary<string, Sprite> spriteDict = new Dictionary<string, Sprite>();
-	public Sprite TESTSPRITE; 
+	//public Sprite TESTSPRITE; 
 	public int numberOfScreens = 0;
 	public int positionInList = 0;
 
@@ -71,6 +71,9 @@ public class InventoryBuilder : MonoBehaviour
 				}
                 catch 
 				{
+					//Sets the sprite to null if the number of sprites in the list is not 
+					//Divisible by 6, this makes it so the other spots blank out instead
+					//of showing the old sprite. 
 					child.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = null;
 				}
 				positionInList +=1;
@@ -82,11 +85,13 @@ public class InventoryBuilder : MonoBehaviour
 	{
 		LoadScreens ();
 
-		if (positionInList >= itemList.Count) {
+		if (positionInList >= itemList.Count) 
+		{
 			downbutton.GetComponent<Button> ().interactable = false;
 		} 
 
-		if (positionInList >= numberOfScreens) {
+		if (positionInList >= numberOfScreens) 
+		{
 			upbutton.GetComponent<Button> ().interactable = true;
 		}
 	}
@@ -97,11 +102,13 @@ public class InventoryBuilder : MonoBehaviour
 		positionInList -= 2 * numberOfScreens; 
 		LoadScreens ();
 
-		if (positionInList <= numberOfScreens) {
+		if (positionInList <= numberOfScreens) 
+		{
 			upbutton.GetComponent<Button> ().interactable = false;
 		}
 
-		if (positionInList <= itemList.Count) {
+		if (positionInList <= itemList.Count) 
+		{
 			downbutton.GetComponent<Button> ().interactable = true;
 		} 
 	}
@@ -112,13 +119,17 @@ public class InventoryBuilder : MonoBehaviour
 
 		foreach (Transform child in textbox.transform)
 		{
-			if (child.name == "Desc") {
+			if (child.name == "Desc") 
+			{
 				child.GetComponent<Text> ().text = item.description;
-			} else if (child.name == "Name") {
+			} else if (child.name == "Name") 
+			{
 				child.GetComponent<Text> ().text = "Name: " + item.name;
-			} else if (child.name == "Cost") {
+			} else if (child.name == "Cost") 
+			{
 				child.GetComponent<Text> ().text = "Cost: " + item.cost.ToString ();
-			} else {
+			} else 
+			{
 				print ("no match");
 			}
 		}
