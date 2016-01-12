@@ -1,8 +1,10 @@
 
 ﻿public class Variables
 {
-	public Variables ()
+
+    public static Player player = new Player("Rod");
+    public Variables ()
 	{
-	
+        
 	}
 }

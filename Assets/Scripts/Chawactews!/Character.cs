@@ -4,9 +4,9 @@ using System.Collections;
 /// <summary>
 /// 
 /// </summary>
-public class Character 
+public class Character : MonoBehaviour
 {
-		public string name { get; private set; }
+		public new string name { get; private set; }
 
 		public Character(string name)
 		{
