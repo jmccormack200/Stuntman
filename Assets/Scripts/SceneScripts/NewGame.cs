@@ -3,23 +3,31 @@ using System.Collections;
 
 public class NewGame : MonoBehaviour {
 
-	static public void train()
+    public static Menu getMenu()
     {
-        Debug.Log("You dun trained, bro.");
+        Option[] options = new Option[2];
+        Menu menu;
+
+        options[0] = new Option("Start Game", "startGame", 0);
+        options[1] = new Option("Choose your Character", "chooseCharacter", 2);
+        
+        menu = new Menu("NewGame", options);
+
+        return menu;
     }
 
-    static public void fight()
+    public static void startGame()
     {
-        Debug.Log("Oh man, bro, you totally fought your own dang dad,bro.");
+       LoadOnClick loc = new LoadOnClick();
+       loc.LoadScene("GameScreen");
     }
 
-    static public void stunt()
+    public static void chooseCharacter()
     {
-        Debug.Log("woah, sweet stunt, bro.");
+        Debug.Log("Stop being so picky!");
+        Debug.Log(Variables.player.skill);
+        Variables.player.incrementSkill(1);
+        Debug.Log(Variables.player.skill);
     }
 
-    static public void rememberDre()
-    {
-        Debug.Log("Ya'll know me...");
-    }
 }

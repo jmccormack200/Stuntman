@@ -19,7 +19,9 @@
         subMenu,
         GameScreen,
         StoreDesigner,
-        Stuntman
+        Stuntman,
+        NewGame
+
     };
     public enum crewJob
     {

@@ -21,12 +21,14 @@ public class MenuGenerator : MonoBehaviour {
         //Menu menu = DatabaseGetMenu(sceneName) or whatever this function will eventually be
 
         //create some test Options/Menu
+        /*
         Option[] options = new Option[4];
         options[0] = new Option("Train", "train", 0);
         options[1] = new Option("Fight", "fight", 2);
         options[2] = new Option("Stunt", "stunt");
         options[3] = new Option("Remember Dre.", "rememberDre");
         Menu menu = new Menu("Test Menu", options);
+        */
 
         //create canvas for menu
         GameObject newCanvas = new GameObject("Canvas", typeof(Canvas));
@@ -37,6 +39,14 @@ public class MenuGenerator : MonoBehaviour {
         Debug.Log(scene.name);
         Type sceneScript = Type.GetType(scene.name);//get name of script file with option functions
         Debug.Log(sceneScript);
+
+        //get Menu object of menu
+        Menu menu = (Menu)sceneScript.GetMethod("getMenu").Invoke(null, null);
+       
+              
+        
+
+
         //MethodInfo method = sceneScript.GetMethod(options[0].func);
         //Debug.Log(method);
         //sceneScript.GetMethod(options[0].func).Invoke(null, null);

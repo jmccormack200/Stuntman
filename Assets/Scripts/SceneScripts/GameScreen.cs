@@ -3,11 +3,30 @@ using System.Collections;
 
 public class GameScreen : MonoBehaviour {
 
+    
+    
     //Player ThePlayer;
     //public static GameScreen Instance { get; private set; }
+
+    public static Menu getMenu()
+    {
+        Option[] options = new Option[4];
+        Menu menu;
+
+        options[0] = new Option("Train", "train", 0);
+        options[1] = new Option("Fight", "fight", 2);
+        options[2] = new Option("Stunt", "stunt");
+        options[3] = new Option("Remember Dre.", "rememberDre");
+        menu = new Menu("GameScreen", options);
+
+        return menu;
+    }   
+
     void Awake()
     {
         //Instance = this;
+        
+        
     }
     void Start()
     {
