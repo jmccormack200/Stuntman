@@ -111,7 +111,7 @@ public class Player : Character
     /// Increments the money.
     /// </summary>
     /// <param name="n">Amount to increment. Cannot be negative.</param>
-    void incrementMoney(int n)
+    public void incrementMoney(int n)
     {
         if (n <= 0)
             return;
