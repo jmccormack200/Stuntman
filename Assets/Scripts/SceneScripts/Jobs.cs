@@ -3,16 +3,7 @@ using System.Collections;
 
 public class Jobs : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public static void bdayFire()
     {
         Debug.Log("You set yourself on fire at a birthday! It was pretty awesome!");

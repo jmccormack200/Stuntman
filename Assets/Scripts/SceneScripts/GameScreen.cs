@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Reflection;
 
 public class GameScreen : MonoBehaviour {
 
@@ -16,7 +18,7 @@ public class GameScreen : MonoBehaviour {
         options[0] = new Option("Train", "train", 0);
         options[1] = new Option("Fight", "fight", 2);
         options[2] = new Option("Stunt", "stunt");
-        options[3] = new Option("Remember Dre.", "rememberDre");
+        options[3] = new Option("Get a Job", "getJob");
         
         menu = new Menu("GameScreen", options);
 
@@ -51,10 +53,10 @@ public class GameScreen : MonoBehaviour {
     static public void fight()
     {
         Player ThePlayer = Variables.player;
-        Random.seed = (int)Time.time;
+        UnityEngine.Random.seed = (int)Time.time;
 
         Debug.Log("Oh man, bro, you're totally 'bout to fight your own dang dad,bro.");
-        float fightChance = Random.value + ThePlayer.skill/100;//1% chance increase per skill level
+        float fightChance = UnityEngine.Random.value + ThePlayer.skill/100;//1% chance increase per skill level
         if(fightChance > Variables.dadSkill)
         {
             Debug.Log("You totally dun kicked your dad's butt, yo!");
@@ -75,8 +77,13 @@ public class GameScreen : MonoBehaviour {
         Debug.Log("woah, sweet stunt, bro.");
     }
 
-    static public void rememberDre()
+    static public void getJob()
     {
-        Debug.Log("Ya'll know me...");
+        UnityEngine.Random.seed = (int)Time.time;//seed Random number generator
+        Type Jobs = Type.GetType("Jobs");//get the Jobs script
+        Debug.Log(Jobs);
+        Debug.Log(Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly).Length);
+        MethodInfo[] jobs = Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly);//get the public, static, declared methods from Jobs, aka the jobs
+        jobs[UnityEngine.Random.Range(0, jobs.Length)].Invoke(null, null);//choose a random job and invoke it
     }
 }
