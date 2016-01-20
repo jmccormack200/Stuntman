@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Offsetspriteanimation : MonoBehaviour {
+public class SeedRandom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
