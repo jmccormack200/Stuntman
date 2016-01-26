@@ -20,6 +20,9 @@ public class MoveAndEnlarge : MonoBehaviour
         // Assign game object's position and scale to local Vector3s
         startingPosition = gameObject.transform.position;
         startingScale = gameObject.transform.localScale;
+
+        // Debug
+        // print(gameObject.name + ": Starting position: (" + startingPosition.x + "," + startingPosition.y + "," + startingPosition.z + ")");
     }
     
     // Update is called once per frame
