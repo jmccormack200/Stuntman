@@ -43,46 +43,50 @@ public class GameScreen : MonoBehaviour {
     {
         //Player ThePlayer = FindObjectOfType<Player>();
         Player ThePlayer = Variables.player;
-        Debug.Log(ThePlayer.skill);
-        Debug.Log("You dun trained, bro.");
+        ModalPanel mp = FindObjectOfType<ModalPanel>();
+        mp.ShowMessage("Previous skill: " + ThePlayer.skill.ToString());
+        mp.ShowMessage("You dun trained, bro.");
         ThePlayer.incrementSkill(1);
-        Debug.Log(ThePlayer.skill);
+        mp.ShowMessage("Current skill: " + ThePlayer.skill.ToString());
     }
 
     //fight your step dad
     static public void fight()
     {
         Player ThePlayer = Variables.player;
+        ModalPanel mp = FindObjectOfType<ModalPanel>();
         UnityEngine.Random.seed = (int)Time.time;
 
-        Debug.Log("Oh man, bro, you're totally 'bout to fight your own dang dad,bro.");
+        mp.ShowMessage("Oh man, bro, you're totally 'bout to fight your own dang dad,bro.");
         float fightChance = UnityEngine.Random.value + ThePlayer.skill/100;//1% chance increase per skill level
         if(fightChance > Variables.dadSkill)
         {
-            Debug.Log("You totally dun kicked your dad's butt, yo!");
+            mp.ShowMessage("You totally dun kicked your dad's butt, yo!");
             ThePlayer.incrementRep(1);
-            Debug.Log("Your rep is now " + ThePlayer.rep);
+            mp.ShowMessage("Your rep is now " + ThePlayer.rep);
         }
         else
         {
-            Debug.Log("Aww shucks, you got your dang butt beat up, son!");
+            mp.ShowMessage("Aww shucks, you got your dang butt beat up, son!");
             ThePlayer.decrementHealth(1);
-            Debug.Log("Your health is now " + ThePlayer.health);
+            mp.ShowMessage("Your health is now " + ThePlayer.health);
         }
         
     }
 
     static public void stunt()
     {
-        Debug.Log("woah, sweet stunt, bro.");
+        ModalPanel mp = FindObjectOfType<ModalPanel>();
+        mp.ShowMessage("woah, sweet stunt, bro.");
     }
 
     static public void getJob()
     {
+        ModalPanel mp = FindObjectOfType<ModalPanel>();
         UnityEngine.Random.seed = (int)Time.time;//seed Random number generator
         Type Jobs = Type.GetType("Jobs");//get the Jobs script
-        Debug.Log(Jobs);
-        Debug.Log(Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly).Length);
+        //mp.ShowMessage(Jobs);
+        //mp.ShowMessage(Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly).Length);
         MethodInfo[] jobs = Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly);//get the public, static, declared methods from Jobs, aka the jobs
         jobs[UnityEngine.Random.Range(0, jobs.Length)].Invoke(null, null);//choose a random job and invoke it
     }

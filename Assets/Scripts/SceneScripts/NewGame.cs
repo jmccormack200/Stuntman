@@ -26,10 +26,12 @@ public class NewGame : MonoBehaviour {
 
     public static void chooseCharacter()
     {
-        Debug.Log("Stop being so picky!");
-        Debug.Log(Variables.player.skill);
+        ModalPanel mp = FindObjectOfType <ModalPanel>();
+        mp.ShowMessage("Stop being so picky!");
+        mp.ShowMessage("Previous Skill: " + Variables.player.skill.ToString());
         Variables.player.incrementSkill(1);
-        Debug.Log(Variables.player.skill);
+        mp.ShowMessage("Current Skill: " + Variables.player.skill.ToString());
+            
     }
 
     //goes back to previous scene
