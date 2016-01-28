@@ -48,6 +48,8 @@ public class GameScreen : MonoBehaviour {
         mp.ShowMessage("You dun trained, bro.");
         ThePlayer.incrementSkill(1);
         mp.ShowMessage("Current skill: " + ThePlayer.skill.ToString());
+
+        ActionManager.Instance.decrementActionsLeft();
     }
 
     //fight your step dad
@@ -71,13 +73,15 @@ public class GameScreen : MonoBehaviour {
             ThePlayer.decrementHealth(1);
             mp.ShowMessage("Your health is now " + ThePlayer.health);
         }
-        
+        ActionManager.Instance.decrementActionsLeft();
     }
 
     static public void stunt()
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
         mp.ShowMessage("woah, sweet stunt, bro.");
+
+        ActionManager.Instance.decrementActionsLeft();
     }
 
     static public void getJob()
@@ -89,5 +93,7 @@ public class GameScreen : MonoBehaviour {
         //mp.ShowMessage(Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly).Length);
         MethodInfo[] jobs = Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly);//get the public, static, declared methods from Jobs, aka the jobs
         jobs[UnityEngine.Random.Range(0, jobs.Length)].Invoke(null, null);//choose a random job and invoke it
+
+        ActionManager.Instance.decrementActionsLeft();
     }
 }
