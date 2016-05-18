@@ -58,7 +58,7 @@ public class ActionManager : MonoBehaviour {
             }
         }
         mp.ShowMessage(string.Format("Month {0}, Day {1}",month, day));
-
+        //mp.updateMessage();
         return actionsLeft;
     }
 }

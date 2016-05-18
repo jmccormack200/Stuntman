@@ -14,7 +14,7 @@ public class ModalPanel : MonoBehaviour
     public GameObject modalPanelObject;
 
     private static ModalPanel modalPanel;
-
+    private Queue messageQueue;
     public static ModalPanel Instance()
     {
         if (!modalPanel)
@@ -27,33 +27,92 @@ public class ModalPanel : MonoBehaviour
         return modalPanel;
     }
     
+    void Awake()
+    {
+        messageQueue = new Queue();
+    }
     void Update()
     {
+       
         CheckInput();
     }
-    // Yes/No/Cancel: A string, a Yes event, a No event and Cancel event
-    public void ShowMessage(string message)
+
+    
+    //ShowMessage takes a message string and waits to display it until current message is closed
+    public IEnumerator ShowMessage(string message)
     {
-        modalPanelObject.SetActive(true);
+        
+        yield return new WaitWhile(delegate { return modalPanelObject.activeInHierarchy; });//wait until panel is not activated
+        {
+            Debug.Log(message + " - No active modal panel object");
+            Debug.Log(message + " - " + modalPanelObject.activeInHierarchy);
+            modalPanelObject.SetActive(true);//activate panel
+            Debug.Log(message + " - " + modalPanelObject.activeInHierarchy);
+            this.message.text = message;//update message
+        }
+        /*
+        if (modalPanelObject.activeInHierarchy)//pop up already showing
+        {
+            queueMessage(message);//queue the message
+        }
+        else//enable panel and change text
+        {
+            modalPanelObject.SetActive(true);
 
-       this.message.text += message + "\n";//append message, so if more than one message is sent while panel is enabled, all get shown
+            this.message.text += message + "\n";//append message, so if more than one message is sent while panel is enabled, all get shown
+        }
+       */
+    }
 
-       
+    //updates message text if there are messages in queue
+    public void updateMessage()
+    {
+        if(messageQueue.Count > 0)//stuff in queue
+        {
+            if(!modalPanelObject.activeInHierarchy)//show pop up
+            {
+                modalPanelObject.SetActive(true);
+                foreach (Button btn in FindObjectsOfType<Button>())
+                {
+                    btn.interactable = false;//disable button inputs
+                }
+            }
+            message.text = (string)messageQueue.Dequeue();//update message with first message
+        }
     }
 
     public void ClosePanel()
     {
-        this.message.text = "";//clear message
-        modalPanelObject.SetActive(false);
         
+       
+        modalPanelObject.SetActive(false);//close message box
+        foreach (Button btn in FindObjectsOfType<Button>())
+        {
+            btn.interactable = true;//enable button inputs
+        }
+
     }
 
     public void CheckInput()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown)//if key pressed
         {
             ClosePanel();
+            return;
+            if (messageQueue.Count <= 0)//no messages in queue
+            {
+                ClosePanel();//close panel
+            }
+            else//still messages in queue
+            {
+                updateMessage();//update message
+            }
         }
+    }
+
+    public void queueMessage(string msg)
+    {
+        messageQueue.Enqueue(msg);
     }
 }
 
