@@ -4,41 +4,41 @@ using System.Collections;
 public class Jobs : MonoBehaviour {
 
 	
-    public static IEnumerator bdayFire()
+    public static void bdayFire()
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
-        yield return mp.ShowMessage("You set yourself on fire at a birthday! It was pretty awesome!");
-        yield return mp.ShowMessage("You gained +1 to rep, -5 to health, + $10");
+        mp.QueueMessage("You set yourself on fire at a birthday! It was pretty awesome!");
+        mp.QueueMessage("You gained +1 to rep, -5 to health, + $10");
         Player player = Variables.player;
         player.incrementRep(1);
         player.decrementHealth(5);
         player.incrementMoney(10);
-        //mp.updateMessage();
+        
 
 
     }
 
-    public static IEnumerator bdayPinata()
+    public static void bdayPinata()
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
-        yield return mp.ShowMessage("You play human pinata at a birthday! How sweet of you!");
-        yield return mp.ShowMessage("You gained +1 to rep, -3 to health, + $5");
+        mp.QueueMessage("You play human pinata at a birthday! How sweet of you!");
+        mp.QueueMessage("You gained +1 to rep, -3 to health, + $5");
         Player player = Variables.player;
         player.incrementRep(1);
         player.decrementHealth(5);
         player.incrementMoney(5);
-        //mp.updateMessage();
+        
 
     }
 
-    public static IEnumerator wheelie()
+    public static void wheelie()
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
-        yield return mp.ShowMessage("You do a reasonably long wheelie for some neighborhood kids! They were maginally impressed!");
-        yield return mp.ShowMessage("You gained +1 to rep");
+        mp.QueueMessage("You do a reasonably long wheelie for some neighborhood kids! They were maginally impressed!");
+        mp.QueueMessage("You gained +1 to rep");
         Player player = Variables.player;
         player.incrementRep(1);
-        //mp.updateMessage();
+        
 
 
     }

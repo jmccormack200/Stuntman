@@ -41,12 +41,12 @@ public class ActionManager : MonoBehaviour {
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
         mp.modalPanelObject.GetComponentInChildren<Text>().text = "";
-        mp.ShowMessage("Current ActionsLeft: " + actionsLeft);
+        mp.QueueMessage("Current ActionsLeft: " + actionsLeft);
         actionsLeft--;//decrement # of actions left
-        mp.ShowMessage("New ActionsLeft: " + actionsLeft);
+        mp.QueueMessage("New ActionsLeft: " + actionsLeft);
         if (actionsLeft <=0 )//out of actions
         {
-            mp.ShowMessage("Out of Actions, New Day!");
+            mp.QueueMessage("Out of Actions, New Day!");
             actionsLeft = actionsPerDay;//refresh actions
             day++;
             
@@ -54,11 +54,11 @@ public class ActionManager : MonoBehaviour {
             {
                 day = 0;
                 month++;
-                mp.ShowMessage("New Month!");
+                mp.QueueMessage("New Month!");
             }
         }
-        mp.ShowMessage(string.Format("Month {0}, Day {1}",month, day));
-        //mp.updateMessage();
+        mp.QueueMessage(string.Format("Month {0}, Day {1}",month, day));
+        
         return actionsLeft;
     }
 }

@@ -31,10 +31,17 @@ public class ModalPanel : MonoBehaviour
     {
         messageQueue = new Queue();
     }
+
     void Update()
     {
-       
-        CheckInput();
+        if (modalPanelObject.activeInHierarchy)//active message, check for user input to close panel/show next message
+        {
+            CheckInput();
+        }
+        else if(messageQueue.Count > 0)//if no panel, check if messages in queue to be shown
+        {
+            UpdateMessage();
+        }
     }
 
     
@@ -65,17 +72,18 @@ public class ModalPanel : MonoBehaviour
     }
 
     //updates message text if there are messages in queue
-    public void updateMessage()
+    public void UpdateMessage()
     {
+        Debug.Log("Updating Message");
         if(messageQueue.Count > 0)//stuff in queue
         {
             if(!modalPanelObject.activeInHierarchy)//show pop up
             {
                 modalPanelObject.SetActive(true);
-                foreach (Button btn in FindObjectsOfType<Button>())
-                {
-                    btn.interactable = false;//disable button inputs
-                }
+                //foreach (Button btn in FindObjectsOfType<Button>())
+                //{
+                //    btn.interactable = false;//disable button inputs
+                //}
             }
             message.text = (string)messageQueue.Dequeue();//update message with first message
         }
@@ -86,31 +94,32 @@ public class ModalPanel : MonoBehaviour
         
        
         modalPanelObject.SetActive(false);//close message box
-        foreach (Button btn in FindObjectsOfType<Button>())
-        {
-            btn.interactable = true;//enable button inputs
-        }
+        //foreach (Button btn in FindObjectsOfType<Button>())
+        //{
+        //    btn.interactable = true;//enable button inputs
+        //}
 
     }
 
     public void CheckInput()
     {
+        //Debug.Log("Checking Input");
         if (Input.anyKeyDown)//if key pressed
         {
-            ClosePanel();
-            return;
+            //ClosePanel();
+            //return;
             if (messageQueue.Count <= 0)//no messages in queue
             {
                 ClosePanel();//close panel
             }
             else//still messages in queue
             {
-                updateMessage();//update message
+                UpdateMessage();//update message
             }
         }
     }
 
-    public void queueMessage(string msg)
+    public void QueueMessage(string msg)
     {
         messageQueue.Enqueue(msg);
     }
