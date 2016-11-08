@@ -73,7 +73,7 @@ public class GameScreen : MonoBehaviour {
         
         Player ThePlayer = Variables.player;
         
-        UnityEngine.Random.seed = (int)Time.time;//seed random for fight chance
+        UnityEngine.Random.InitState((int)Time.time);//seed random for fight chance
         
         mp.QueueMessage("Oh man, bro, you're totally 'bout to fight your own dang dad,bro.");
         
@@ -112,8 +112,8 @@ public class GameScreen : MonoBehaviour {
     //get at random job
     static public void getJob()
     { 
-        ModalPanel mp = FindObjectOfType<ModalPanel>();
-        UnityEngine.Random.seed = (int)Time.time;//seed Random number generator
+        //ModalPanel mp = FindObjectOfType<ModalPanel>();
+        UnityEngine.Random.InitState((int)Time.time);//seed Random number generator
         Type Jobs = Type.GetType("Jobs");//get the Jobs script
         
         MethodInfo[] jobs = Jobs.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly);//get the public, static, declared methods from Jobs, aka the jobs

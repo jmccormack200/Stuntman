@@ -41,9 +41,9 @@ public class ActionManager : MonoBehaviour {
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
         mp.modalPanelObject.GetComponentInChildren<Text>().text = "";
-        mp.QueueMessage("Current ActionsLeft: " + actionsLeft);
+        //mp.QueueMessage("Current ActionsLeft: " + actionsLeft);
         actionsLeft--;//decrement # of actions left
-        mp.QueueMessage("New ActionsLeft: " + actionsLeft);
+        mp.QueueMessage("ActionsLeft: " + actionsLeft);
         if (actionsLeft <=0 )//out of actions
         {
             mp.QueueMessage("Out of Actions, New Day!");

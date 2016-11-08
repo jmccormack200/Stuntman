@@ -34,7 +34,7 @@ public class Jobs : MonoBehaviour {
     public static void wheelie()
     {
         ModalPanel mp = FindObjectOfType<ModalPanel>();
-        mp.QueueMessage("You do a reasonably long wheelie for some neighborhood kids! They were maginally impressed!");
+        mp.QueueMessage("You do a reasonably long wheelie for some neighborhood kids! They were marginally impressed!");
         mp.QueueMessage("You gained +1 to rep");
         Player player = Variables.player;
         player.incrementRep(1);
