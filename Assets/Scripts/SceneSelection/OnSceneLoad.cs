@@ -9,7 +9,7 @@ public class OnSceneLoad : MonoBehaviour
         SceneManager.sceneLoaded += SceneLoaded;
     }
     //void OnLevelWasLoaded(int level)
-    void SceneLoaded(Scene scene, LoadSceneMode laodSceneMode)
+    void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         MenuGenerator.GenerateMenu();
 	}
