@@ -8,12 +8,12 @@ public class ActionManager : MonoBehaviour {
     public int actionsPerDay;//how many actions the player can perform per day
     public int actionsLeft;//number of actions remaining for the day
     
-    public int month { get; private set; }//current month
+    public int month {get; private set; }//current month
     public int day { get; private set; }//current day
 
     static public ActionManager Instance;
 
-    ActionManager(int month = 1, int day = 1, int actionsPerDay = 1)
+    ActionManager(int actionsPerDay = 2, int month = 1, int day = 1 )
     {
         this.month = month;
         this.day = day;
@@ -26,7 +26,10 @@ public class ActionManager : MonoBehaviour {
 	void Start () {
         if(Instance == null)
         {
-            Instance = new ActionManager();
+            Instance = this;
+            this.month = 1;
+            this.day = 1;
+            actionsLeft = actionsPerDay=2;
         }
 	}
 	
