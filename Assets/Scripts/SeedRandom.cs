@@ -5,7 +5,7 @@ public class SeedRandom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Random.seed = 1337;
+        UnityEngine.Random.InitState(1337 * (int)Time.time);
 	}
 	
 	// Update is called once per frame
