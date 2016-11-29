@@ -16,7 +16,7 @@
     public enum scenes
     {
         MainMenu,
-        subMenu,
+        CharacterSelection,
         GameScreen,
         StoreDesigner,
         Stuntman,
