@@ -4,7 +4,7 @@
 
     public enum health
     {
-        MAX_HEALTH = 100,
+        MAX_HEALTH = 150,
         MIN_HEALTH = 0
     };
     public enum skillDefaults
@@ -38,5 +38,12 @@
         repReward = 0,
         repRequirement = 0
     };
+    public enum characters
+    {
+        Zj,
+        Jesse,
+        John,
+        Rod
+    }
 
 }

@@ -10,11 +10,13 @@ public class PlayerStatsPanel : MonoBehaviour {
     public Text health;
     public Text skill;
     public Text money;
-
+    public Image characterSprite;
 
 	// Use this for initialization
 	void Start () {
-	
+        Update();//call update once to load playerName
+        characterSprite.overrideSprite =  Resources.Load<Sprite>("Sprites/Chawactews!/" + playerName.text);//get character sprite
+         
 	}
 	
 	// Update is called once per frame
