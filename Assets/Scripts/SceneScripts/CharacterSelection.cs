@@ -18,16 +18,16 @@ public class CharacterSelection : MonoBehaviour {
 
     public void ChooseCharacter(string character)
     {
-        if (character == "Zach")
+        if (character == Constants.characters.Zj.ToString())
         {
-            Variables.player = new Player(5, 50, 5, 50, "Zach");
+            Variables.player = new Player(5, 50, 5, 50, "Zj");
             
         }
-        else if(character == "Jesse")
+        else if(character == Constants.characters.Jesse.ToString())
         {
             Variables.player = new Player(10, 150, 1, 50, "Jesse");
         }
-        else if(character == "John")
+        else if(character == Constants.characters.John.ToString())
         {
             Variables.player = new Player(1, 100, 10, 100, "John");
         }
