@@ -3,33 +3,38 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PowerSlider : MonoBehaviour {
-
-    public int startingValue = 0;
-    public int speed = 1;
-    public int power = 0 ;
-    private bool forward = true; // If true, value counts up. Counts down if false.
+        
+    public float power = 0 ;
+    public float speed = 2f;
+    private bool stop = false;
+    private float localYscale;
    
     // Use this for initialization
     void Start () {
-    
+        localYscale = transform.localScale.y;
+        // Horizontally scale bar to zero
+        transform.localScale = new Vector2(0f, localYscale);
     }
     
     // Update is called once per frame
     void Update () {
 
-        // If power goes out of bounds, reverse direction
-        if (power < 0 || power > 100)
-            forward = !forward;
+        if (!stop)
+        {
+            power = (power + (speed * Time.deltaTime)) % localYscale;
 
-        if (forward) power += speed;
-        else power -= speed;
+            transform.localScale = new Vector2(power, localYscale);
 
-        // For debug: output power to Text
-        GetComponent<Text>().text = power.ToString();
+            // finally updating its position to give the feeling it's growing from left to right
+            //transform.position = new Vector2(power / 2, transform.localPosition.y);
+
+            // For debug: output power to Text
+            GameObject.Find("txtPower").GetComponent<Text>().text = power.ToString();
+        }
     }
 
     public void Stop()
     {
-        speed = 0;
+        stop = !stop;
     }
 }
