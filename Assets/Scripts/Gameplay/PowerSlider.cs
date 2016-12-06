@@ -22,19 +22,20 @@ public class PowerSlider : MonoBehaviour {
         if (!stop)
         {
             power = (power + (speed * Time.deltaTime)) % 100;
-
-            transform.localScale = new Vector2(power * localYscale / 100, localYscale);
-
-            // finally updating its position to give the feeling it's growing from left to right
-            //transform.position = new Vector2(power / 2, transform.localPosition.y);
+            transform.localScale = new Vector2(power / 100, localYscale);
 
             // For debug: output power to Text
             GameObject.Find("txtPower").GetComponent<Text>().text = power.ToString();
         }
     }
 
-    public void Stop()
+    public void Trigger()
     {
         stop = !stop;
+    }
+    
+    public void Stop()
+    {
+        stop = true;
     }
 }
