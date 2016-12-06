@@ -21,9 +21,9 @@ public class PowerSlider : MonoBehaviour {
 
         if (!stop)
         {
-            power = (power + (speed * Time.deltaTime)) % localYscale;
+            power = (power + (speed * Time.deltaTime)) % 100;
 
-            transform.localScale = new Vector2(power, localYscale);
+            transform.localScale = new Vector2(power * localYscale / 100, localYscale);
 
             // finally updating its position to give the feeling it's growing from left to right
             //transform.position = new Vector2(power / 2, transform.localPosition.y);
